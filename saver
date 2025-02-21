@@ -1,0 +1,18 @@
+from telegram import Update
+   from telegram.ext import Updater, CommandHandler, CallbackContext
+
+   def start(update: Update, context: CallbackContext) -> None:
+       update.message.reply_text('Hello! I am your Telegram bot.')
+
+   def main() -> None:
+       # Replace 'YOUR_TOKEN' with your bot token
+       updater = Updater("5575660786:AAHOz0slxr8MErJ5cDDB5351qpn1GwZg82s")
+
+       dispatcher = updater.dispatcher
+       dispatcher.add_handler(CommandHandler("start", start))
+
+       updater.start_polling()
+       updater.idle()
+
+   if __name__ == '__main__':
+       main()
